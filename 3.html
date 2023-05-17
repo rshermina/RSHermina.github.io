@@ -45,6 +45,30 @@
             max-width: 100%;
             height: auto;
             width: 100vw; /* menyesuaikan lebar viewport perangkat seluler */
+            </body>
+<script>
+    const answer = (payload) => {
+        let url = 'https://api.sheety.co/13e7e8c5ab29785dd8caf76587acdae5/hermina/response';
+        let body = {
+            response: {
+                answer: payload ? 'Iya' : 'Mungkin lain waktu'
+            }
+        }
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        })
+        .then(() => {
+            window.location.href = window.location.href.replace('3.html', '4.html');
+        }).catch((error) => {
+            alert('terjadi kesalahan, silahkan coba lagi!');
+        });
+    }
+</script>
         }
     </style>
 </head>
